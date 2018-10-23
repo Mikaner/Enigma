@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Enigma{
     public static void main(String[] args) {
         //input
@@ -33,7 +34,7 @@ public class Enigma{
             /*if(input == ""){ I don't know why this don't move.
                 break;
             }*/
-            char[] cPut = input.toCharArray();//change type of char
+            char[] cPut = input.toCharArray();//change type to char
             for(int i = 0; i < cPut.length; i++){
                 System.out.println(cPut[i]);
             }
