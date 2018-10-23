@@ -3,6 +3,7 @@ public class Roter{
     private char top;
     private static char char1,char2;
     private static int roterNum;
+    private static char[] alphabet = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
     
     public Roter(int num, char top){
         this.num = num;
