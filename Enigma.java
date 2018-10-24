@@ -1,4 +1,8 @@
 import java.util.Scanner;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class Enigma{
     public static void main(String[] args) {
@@ -26,7 +30,17 @@ public class Enigma{
         Roter roter2 = new Roter(sNum2,top2);//call roter2
         Roter roter3 = new Roter(sNum3,top3);//call roter3
         Roter.setExchange(char1, char2);
-        System.out.println(Roter.getRoterNum());
+
+        //確認用
+        System.out.println(Roter.getRoterSum());
+        for(int i = 0; i < Roter.getAlphSum(); i++){
+            System.out.print(" "+Roter.getAlphabetToNum((char)('A'+i)));
+        }
+        System.out.println();
+        for(int i = 0; i< Roter.getAlphSum(); i++){
+            System.out.print(" "+Roter.getExchangeRoter(i));
+        }
+        System.out.println();
 
         System.out.println("Please type a message here.");
         while(true){
