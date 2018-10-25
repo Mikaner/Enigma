@@ -23,13 +23,13 @@ public class Enigma{
         char top3 = scanner.next().charAt(0);//first
 
         System.out.println("Exchange");
-        char char1 = scanner.next().charAt(0);//exchange character
-        char char2 = scanner.next().charAt(0);
+        char exchangeAlph1 = scanner.next().charAt(0);//exchange character
+        char exchangeAlph2 = scanner.next().charAt(0);
 
         Roter roter1 = new Roter(sNum1,top1);//call roter1
         Roter roter2 = new Roter(sNum2,top2);//call roter2
         Roter roter3 = new Roter(sNum3,top3);//call roter3
-        Roter.setExchange(char1, char2);
+        Roter.setExchange(exchangeAlph1, exchangeAlph2);
 
         //確認用
         System.out.println(Roter.getRoterSum());
