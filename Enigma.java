@@ -10,15 +10,15 @@ public class Enigma{
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Setting");
-        System.out.println("First Roter");
-        int sNum1 = scanner.nextInt();//the Number of First roter
+        System.out.println("First Rotor");
+        int sNum1 = scanner.nextInt();//the Number of First Rotor
         char top1 = scanner.next().charAt(0); //first character
 
-        System.out.println("Second Roter");
-        int sNum2 = scanner.nextInt();//the Second roter
+        System.out.println("Second Rotor");
+        int sNum2 = scanner.nextInt();//the Second Rotor
         char top2 = scanner.next().charAt(0);//first
 
-        System.out.println("Third Roter");
+        System.out.println("Third Rotor");
         int sNum3 = scanner.nextInt();//the Third
         char top3 = scanner.next().charAt(0);//first
 
@@ -26,19 +26,23 @@ public class Enigma{
         char exchangeAlph1 = scanner.next().charAt(0);//exchange character
         char exchangeAlph2 = scanner.next().charAt(0);
 
-        Roter roter1 = new Roter(sNum1,top1);//call roter1
-        Roter roter2 = new Roter(sNum2,top2);//call roter2
-        Roter roter3 = new Roter(sNum3,top3);//call roter3
-        Roter.setExchange(exchangeAlph1, exchangeAlph2);
+        Rotor rotor1 = new Rotor(sNum1,top1);//call Rotor1
+        Rotor rotor2 = new Rotor(sNum2,top2);//call Rotor2
+        Rotor rotor3 = new Rotor(sNum3,top3);//call Rotor3
+        Rotor.setExchange(exchangeAlph1, exchangeAlph2);
 
         //確認用
-        System.out.println(Roter.getRoterSum());
-        for(int i = 0; i < Roter.getAlphSum(); i++){
-            System.out.print(" "+Roter.getAlphabetToNum((char)('A'+i)));
+        System.out.println(Rotor.getRotorSum());
+        for(int i = 0; i < Rotor.getAlphSum(); i++){
+            System.out.print(Rotor.getAlphabet(i));
         }
         System.out.println();
-        for(int i = 0; i< Roter.getAlphSum(); i++){
-            System.out.print(" "+Roter.getExchangeRoter(i));
+        for(int i = 0; i < Rotor.getAlphSum(); i++){
+            System.out.print(" "+Rotor.getAlphabetToNum((char)('A'+i)));
+        }
+        System.out.println();
+        for(int i = 0; i< Rotor.getAlphSum(); i++){
+            System.out.print(" "+Rotor.getExchangeRotor(i));
         }
         System.out.println();
 
@@ -50,8 +54,9 @@ public class Enigma{
             }*/
             char[] cPut = input.toCharArray();//change type to char
             for(int i = 0; i < cPut.length; i++){
-                System.out.println(cPut[i]);
+                System.out.print(cPut[i]);
             }
+            System.out.println();
         }
 
     }
