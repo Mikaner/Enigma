@@ -26,9 +26,12 @@ public class Enigma{
         char exchangeAlph1 = scanner.next().charAt(0);//exchange character
         char exchangeAlph2 = scanner.next().charAt(0);
 
-        Rotor rotor1 = new Rotor(sNum1,top1);//call Rotor1
-        Rotor rotor2 = new Rotor(sNum2,top2);//call Rotor2
-        Rotor rotor3 = new Rotor(sNum3,top3);//call Rotor3
+        Rotor rotor1 = new Rotor();//call Rotor1
+        Rotor rotor2 = new Rotor();//call Rotor2
+        Rotor rotor3 = new Rotor();//call Rotor3
+        rotor1.setRotor(sNum1, top1);
+        rotor2.setRotor(sNum2, top2);
+        rotor3.setRotor(sNum3, top3);
         Rotor.setExchange(exchangeAlph1, exchangeAlph2);
 
         //確認用
@@ -49,11 +52,43 @@ public class Enigma{
         System.out.println("Please type a message here.");
         while(true){
             String input = scanner.next();
-            /*if(input == ""){ I don't know why this don't move.
+            if(java.util.Objects.equals(input,"\"exit\"")){
                 break;
-            }*/
+            }
             char[] cPut = input.toCharArray();//change type to char
-            for(int i = 0; i < cPut.length; i++){
+            for(int i = 0; i < cPut.length; i++){//change alphabet
+                /* conversion processing */
+                cPut[i] = Rotor.exchange(
+                    rotor1.conversion(
+                        rotor2.conversion(
+                            rotor3.conversion(
+                                Rotor.returnNum(
+                                    rotor3.conversion(
+                                        rotor2.conversion(
+                                            rotor1.conversion(
+                                                Rotor.exchange(
+                                                    cPut[i]
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                );
+                /* Rotation processing */
+                rotor1.rotate();
+                Rotor.plusRotateSum();
+                if(Rotor.getRotateSum() % Rotor.getAlphSum() == 0){
+                    rotor2.rotate();
+                }
+                if(Rotor.getRotateSum() % Math.pow(Rotor.getAlphSum(),Rotor.getAlphSum()) == 0){
+                    rotor3.rotate();
+                }
+                Rotor.plusRotateSum();
+            }
+            for(int i = 0; i < cPut.length; i++){//output
                 System.out.print(cPut[i]);
             }
             System.out.println();
