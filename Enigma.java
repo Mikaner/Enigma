@@ -43,7 +43,7 @@ public class Enigma{
         for(int i = 0; i < Rotor.getAlphSum(); i++){
             System.out.print(" "+Rotor.exchange(i));
         }
-        System.out.println();
+        /*System.out.println();
         for(int i = 0; i < Rotor.getAlphSum(); i++){
             System.out.print(" "+Rotor.getAlphabetToNum((char)('A'+i)));
         }
@@ -51,7 +51,7 @@ public class Enigma{
         for(int i = 0; i< Rotor.getAlphSum(); i++){
             System.out.print(" "+Rotor.getExchangeRotor(i));
         }
-        System.out.println();
+        System.out.println();*/
 
         System.out.println("Please type a message here.");
         while(true){
@@ -60,14 +60,6 @@ public class Enigma{
                 break;
             }
             char[] cPut = input.toCharArray();//change type to char
-            /*for (int i = 0; i < cPut.length; i++) {
-                System.out.print(Rotor.exchange(Rotor.exchange(cPut[i])));
-                //AAA OK
-            }
-            for (int i = 0; i < cPut.length; i++) {
-                System.out.println(Rotor.exchange(rotor1.conversion(rotor1.conversion(Rotor.exchange(cPut[i])))));
-                //RRR BAD
-            }*/
             for(int i = 0; i < cPut.length; i++){//change alphabet
                 /* conversion processing */
                 cPut[i] = Rotor.exchange(
