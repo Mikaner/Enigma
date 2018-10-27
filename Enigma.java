@@ -43,8 +43,8 @@ public class Enigma{
         for(int i = 0; i < Rotor.getAlphSum(); i++){
             System.out.print(" "+Rotor.exchange(i));
         }
-        /*System.out.println();
-        for(int i = 0; i < Rotor.getAlphSum(); i++){
+        System.out.println();
+        /*for(int i = 0; i < Rotor.getAlphSum(); i++){
             System.out.print(" "+Rotor.getAlphabetToNum((char)('A'+i)));
         }
         System.out.println();
@@ -90,7 +90,6 @@ public class Enigma{
                 if(Rotor.getRotateSum() % Math.pow(Rotor.getAlphSum(),Rotor.getAlphSum()) == 0){
                     rotor3.rotate();
                 }
-                Rotor.plusRotateSum();
             }
             for(int i = 0; i < cPut.length; i++){//output
                 System.out.print(cPut[i]);
