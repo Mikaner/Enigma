@@ -18,6 +18,7 @@ public class Rotor{
     private static int[] rotor3 = {14,21, 6,25,22,17, 2,23,15,20,24,19,13,12, 0, 8,18, 5,16,11, 9, 1, 4, 7,10, 3};//
     private static int[] returnRotor = {25,24,23,22,21,20,19,18,17,16,15,14,13,12,11,10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
     private static char[] alphabet = new char[alphSum];
+    private static char[] alphabetExchange = new char[alphSum];
     private static final Map<Character, Integer> alphabetToNum;
     static {
         Map<Character, Integer> map = new HashMap<>();
@@ -34,7 +35,7 @@ public class Rotor{
 
     public void setRotor(int number, char topAlph){
         num = number;//do not need
-        top = topAlph-firstAlph+1;
+        top = topAlph-firstAlph;
         if(java.util.Objects.equals(1,num)){
             for(int i = 0; i < alphSum; i++){
                 rotor[i] = rotor1[(top+i)%alphSum];
@@ -56,10 +57,13 @@ public class Rotor{
         for(int i = 0; i < alphSum; i++){
             if(alphabet[i] == c1){
                 exchangeRotor[i] = alphabetToNum.get(c2);
+                alphabetExchange[i] = alphabet[alphabetToNum.get(c2)];
             }else if (alphabet[i] == c2){
                 exchangeRotor[i] = alphabetToNum.get(c1);
+                alphabetExchange[i] = alphabet[alphabetToNum.get(c1)];
             }else{
                 exchangeRotor[i] = i;
+                alphabetExchange[i] = alphabet[i];
             }
         }
     }
@@ -68,7 +72,7 @@ public class Rotor{
         return alphabet[alphabetToNum.get(a)];
     }
 
-    public void rotate(){//to need chack
+    public void rotate(){
         int save = rotor[0];
         for(int i = 0; i < alphSum; i++){
             rotor[i] = rotor[(i+1)%alphSum];
@@ -85,7 +89,7 @@ public class Rotor{
     }
 
     public static char exchange(int n){
-        return alphabet[n];//koko
+        return alphabetExchange[n];
     }
 
     public static int returnNum(int n){
