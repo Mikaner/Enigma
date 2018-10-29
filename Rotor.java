@@ -16,6 +16,7 @@ public class Rotor{
     private static int[] rotor1 =     {13,23,15,22, 6,25, 4, 9,21, 7,24,19,20, 0,17, 2,18,14,16,11,12, 8, 3, 1,10, 5};//
     private static int[] rotor2 =     {12,20,10,19,14, 6, 5,16,25,24, 2,13, 0,11, 4,17, 7,15,23, 3, 1,22,21,18, 9, 8};//
     private static int[] rotor3 =     {14,21, 6,25,22,17, 2,23,15,20,24,13,19,11, 0, 8,18, 5,16,12, 9, 1, 4, 7,10, 3};//
+    private static int[] rotor4 =     {15, 8, 4,22, 2,12,17,21, 1,11,18, 9, 5,23,16, 0,14, 6,10,20,19, 7, 3,13,25,24};//
     private static int[] returnRotor= {25,24,23,22,21,20,19,18,17,16,15,14,13,12,11,10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
     private static char[] alphabet = new char[alphSum];
     private static char[] alphabetExchange = new char[alphSum];
@@ -38,18 +39,22 @@ public class Rotor{
         top = topAlph-firstAlph;
         if(java.util.Objects.equals(1,num)){
             for(int i = 0; i < alphSum; i++){
-                rotor[i] = (alphSum+rotor1[(top+i)%alphSum]-top)%26;
+                rotor[i] = (alphSum+rotor1[(top+i)%alphSum]-top)%alphSum;
             }
         }else if(java.util.Objects.equals(2,num)){
             for(int i = 0; i < alphSum; i++){
-                rotor[i] = (alphSum+rotor2[(top+i)%alphSum]-top)%26;
+                rotor[i] = (alphSum+rotor2[(top+i)%alphSum]-top)%alphSum;
             }
         }else if(java.util.Objects.equals(3,num)){
             for(int i = 0; i < alphSum; i++){
-                rotor[i] = (alphSum+rotor3[(top+i)%alphSum]-top)%26;
+                rotor[i] = (alphSum+rotor3[(top+i)%alphSum]-top)%alphSum;
+            }
+        }else if(java.util.Objects.equals(4,num)){
+            for (int i = 0; i < alphSum; i++) {
+                rotor[i] = (alphSum+rotor4[(top+i)%alphSum]-top)%alphSum;
             }
         }else{
-            System.out.println("Please set the number of the rotor between 1 and 3.");
+            System.out.println("Please set the number of rotor between 1 and 4.");
         }
     }
 

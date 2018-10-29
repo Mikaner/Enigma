@@ -26,9 +26,9 @@ public class Enigma{
         char exchangeAlph1 = scanner.next().charAt(0);//exchange character
         char exchangeAlph2 = scanner.next().charAt(0);
 
-        Rotor rotor1 = new Rotor();//call Rotor1
-        Rotor rotor2 = new Rotor();//call Rotor2
-        Rotor rotor3 = new Rotor();//call Rotor3
+        Rotor rotor1 = new Rotor();//call The First Rotor
+        Rotor rotor2 = new Rotor();//call The Second Rotor
+        Rotor rotor3 = new Rotor();//call The Third Rotor
         rotor1.setRotor(sNum1, top1);
         rotor2.setRotor(sNum2, top2);
         rotor3.setRotor(sNum3, top3);
@@ -44,14 +44,6 @@ public class Enigma{
             System.out.print(" "+Rotor.exchange(i));
         }
         System.out.println();
-        /*for(int i = 0; i < Rotor.getAlphSum(); i++){
-            System.out.print(" "+Rotor.getAlphabetToNum((char)('A'+i)));
-        }
-        System.out.println();
-        for(int i = 0; i< Rotor.getAlphSum(); i++){
-            System.out.print(" "+Rotor.getExchangeRotor(i));
-        }
-        System.out.println();*/
 
         System.out.println("Please type a message here.");
         while(true){
@@ -96,6 +88,5 @@ public class Enigma{
             }
             System.out.println();
         }
-
     }
 }
