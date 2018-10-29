@@ -26,6 +26,8 @@ public class Rotor{
         for(int i = 0; i < alphSum; i++){
             map.put((char)(firstAlph+i), i);
             alphabet[i] = (char)(firstAlph+i);
+            exchangeRotor[i] = i;
+            alphabetExchange[i] = alphabet[i];
         }
         alphabetToNum = Collections.unmodifiableMap(map);
     }
@@ -59,18 +61,10 @@ public class Rotor{
     }
 
     public static void setExchange(char c1, char c2){
-        for(int i = 0; i < alphSum; i++){
-            if(alphabet[i] == c1){
-                exchangeRotor[i] = alphabetToNum.get(c2);
-                alphabetExchange[i] = alphabet[alphabetToNum.get(c2)];
-            }else if (alphabet[i] == c2){
-                exchangeRotor[i] = alphabetToNum.get(c1);
-                alphabetExchange[i] = alphabet[alphabetToNum.get(c1)];
-            }else{
-                exchangeRotor[i] = i;
-                alphabetExchange[i] = alphabet[i];
-            }
-        }
+        exchangeRotor[alphabetToNum.get(c1)] = alphabetToNum.get(c2);
+        exchangeRotor[alphabetToNum.get(c2)] = alphabetToNum.get(c1);
+        alphabetExchange[alphabetToNum.get(c1)] = alphabet[alphabetToNum.get(c2)];
+        alphabetExchange[alphabetToNum.get(c2)] = alphabet[alphabetToNum.get(c1)];
     }
 
     public char changeAlphabet(char a){

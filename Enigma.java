@@ -23,8 +23,15 @@ public class Enigma{
         char top3 = scanner.next().charAt(0);//first
 
         System.out.println("Exchange");
-        char exchangeAlph1 = scanner.next().charAt(0);//exchange character
-        char exchangeAlph2 = scanner.next().charAt(0);
+        System.out.print("Number of Alphabet to exchange : ");
+        int exchangeCount = scanner.nextInt();//exchange count
+        char exchangeAlph1;
+        char exchangeAlph2;
+        for (int i = 0; i < exchangeCount; i++) {
+            exchangeAlph1 = scanner.next().charAt(0);//exchange character
+            exchangeAlph2 = scanner.next().charAt(0);
+            Rotor.setExchange(exchangeAlph1, exchangeAlph2);
+        }
 
         Rotor rotor1 = new Rotor();//call The First Rotor
         Rotor rotor2 = new Rotor();//call The Second Rotor
@@ -32,7 +39,6 @@ public class Enigma{
         rotor1.setRotor(sNum1, top1);
         rotor2.setRotor(sNum2, top2);
         rotor3.setRotor(sNum3, top3);
-        Rotor.setExchange(exchangeAlph1, exchangeAlph2);
 
         //確認用
         System.out.println(Rotor.getRotorSum());
