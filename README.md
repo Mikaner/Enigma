@@ -1,8 +1,9 @@
 # Enigma
 えにぐま＠がんばる
-## version 1.0.1
+## version 1.0.2
 ###### 変更点
-- ローター4を追加。コード、コメントアウトを微修正。
+- 入れ替える文字（プラグボードのプラグ）を指定できるようにアップデート。returnRotor変数、retrunNum()関数をそれぞれreflector変数、reflector()関数に名義変更。
+
 ###### 使い方
 - とりあえず、コンパイルです。
   1. `javac .\Enigma.java`などと打ってコンパイルしてください。`javac`がない場合はインストールして環境を整えてきてください。
@@ -10,7 +11,7 @@
   3. 急に止めたくなった場合は`ctrl+Z`か`ctrl+C`を押して強制終了してください。
 
 - 次に、セッティングです。
-  1. First Rotorと出るので、一番目のローターの番号と一番上の文字をセットしてください。(version 1.0.1現在ではローターは4つあります。文字は英字の大文字のみ対応しています)
+  1. First Rotorと出るので、一番目のローターの番号と一番上の文字をセットしてください。(version 1.0.2現在ではローターは4つあります。文字は英字の大文字のみ対応しています)
   ```:入力例
   First Rotor
   1 A
@@ -34,7 +35,7 @@
   3 C
   ```
 
-  4. Exchangeと出るので、入れ替えたい文字を二つ指定してください。
+  4. Exchangeと出るので、入れ替えたい文字の数と入れ替えたい文字をそれぞれ指定してください。
   ```:入力例
   First Rotor
   1 A
@@ -43,7 +44,10 @@
   Third Rotor
   3 C
   Exchange
+  Number of Alphabet to exchange : 3
   A Z
+  B C
+  X Y
   ```
 
   5. 現在あるローターの数と、対応しているA~Zの入れ替える前、入れ替えた後が出力されたら、セッティングは終了です。
@@ -55,10 +59,13 @@
   Third Rotor
   3 C
   Exchange
+  Number of Alphabet to exchange : 3
   A Z
+  B C
+  X Y
   3
    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-   Z B C D E F G H I J K L M N O P Q R S T U V W X Y A
+   Z C B D E F G H I J K L M N O P Q R S T U V W Y X A
   Please type a message here.
   ```
 - この後は文字を入力します
@@ -90,5 +97,9 @@
   ```
 
   4. 復号する際は、起動しなおして、セッティングの1から同じ設定にしてください。
+
+## version 1.0.1
+###### 変更点
+- ローター4を追加。コード、コメントアウトを微修正。
 ## version 1.0.0
 - Enigmaはじめてみました。
