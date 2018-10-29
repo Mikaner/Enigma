@@ -64,7 +64,7 @@ public class Enigma{
                     rotor1.conversion(
                         rotor2.conversion(
                             rotor3.conversion(
-                                Rotor.returnNum(
+                                Rotor.reflector(
                                     rotor3.conversion(
                                         rotor2.conversion(
                                             rotor1.conversion(

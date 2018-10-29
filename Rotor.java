@@ -17,7 +17,7 @@ public class Rotor{
     private static int[] rotor2 =     {12,20,10,19,14, 6, 5,16,25,24, 2,13, 0,11, 4,17, 7,15,23, 3, 1,22,21,18, 9, 8};//
     private static int[] rotor3 =     {14,21, 6,25,22,17, 2,23,15,20,24,13,19,11, 0, 8,18, 5,16,12, 9, 1, 4, 7,10, 3};//
     private static int[] rotor4 =     {15, 8, 4,22, 2,12,17,21, 1,11,18, 9, 5,23,16, 0,14, 6,10,20,19, 7, 3,13,25,24};//
-    private static int[] returnRotor= {25,24,23,22,21,20,19,18,17,16,15,14,13,12,11,10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+    private static int[] reflector= {25,24,23,22,21,20,19,18,17,16,15,14,13,12,11,10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
     private static char[] alphabet = new char[alphSum];
     private static char[] alphabetExchange = new char[alphSum];
     private static final Map<Character, Integer> alphabetToNum;
@@ -92,8 +92,8 @@ public class Rotor{
         return alphabetExchange[n];
     }
 
-    public static int returnNum(int n){
-        return returnRotor[n];
+    public static int reflector(int n){
+        return reflector[n];
     }
 
     public static void plusRotateSum(){
