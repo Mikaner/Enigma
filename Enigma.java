@@ -61,9 +61,9 @@ public class Enigma{
             for(int i = 0; i < cPut.length; i++){//change alphabet
                 /* conversion processing */
                 cPut[i] = Rotor.exchange(
-                    rotor1.conversion(
-                        rotor2.conversion(
-                            rotor3.conversion(
+                    rotor1.reConversion(
+                        rotor2.reConversion(
+                            rotor3.reConversion(
                                 Rotor.reflector(
                                     rotor3.conversion(
                                         rotor2.conversion(
