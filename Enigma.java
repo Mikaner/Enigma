@@ -82,10 +82,11 @@ public class Enigma{
                 /* Rotation processing */
                 rotor1.rotate();
                 Rotor.plusRotateSum();
-                if(Rotor.getRotateSum() % Rotor.getAlphSum() == 0){
+                //
+                if(Rotor.getRotateSum() % Rotor.getAlphSum() == rotor1.getRotateNum()){
                     rotor2.rotate();
                 }
-                if(Rotor.getRotateSum() % Math.pow(Rotor.getAlphSum(),Rotor.getAlphSum()) == 0){
+                if(Rotor.getRotateSum() % Math.pow(Rotor.getAlphSum(),Rotor.getAlphSum()) == rotor2.getRotateNum()){
                     rotor3.rotate();
                 }
             }

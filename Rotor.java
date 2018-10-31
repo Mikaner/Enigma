@@ -8,17 +8,17 @@ public class Rotor{
     private static int alphSum  = lastAlph-firstAlph+1;
     private int num;
     private int top;
-    private int[] rotor = new int[alphSum];
+    private int[] rotor = new int[alphSum+1];
     private int[] reRotor = new int[alphSum];
     private static int rotorSum;
     private static int rotateSum;
     private static int[] exchangeRotor = new int[alphSum];
-                                   //{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25}
-    private static int[] rotor1 =    { 6, 9,18,25,13, 7,24,21,19,16,20,23, 8, 3,12, 1,22,10,14,15, 2, 0, 4,17,11, 5};
-    private static int[] rotor2 =    { 3, 1,10,13, 6,22, 5,18,17,14,23, 9, 7,24,21,15, 8,16,12,19,25, 4,20, 0, 2,11};
-    private static int[] rotor3 =    {20, 9, 4,13,19, 5, 8,15,18,21,12, 0,11, 6,22, 7,23,24,10, 3,25,14,16, 1,17, 2};
-    private static int[] rotor4 =    {15, 8, 5,22, 2,17,16,21,10,11,18, 1,13,23,24,12,14, 6, 7, 0,19, 4, 3, 9,25,20};
-    private static int[] rotor5 =    { 1,16,23,18,15,20,22, 4, 7,21, 6,17, 3, 9,25, 2,24, 8,14,13,12, 5,11, 0,19,10};
+                                   //{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25} The number in last is rotate number.
+    private static int[] rotor1 =    { 6, 9,18,25,13, 7,24,21,19,16,20,23, 8, 3,12, 1,22,10,14,15, 2, 0, 4,17,11, 5, 3};
+    private static int[] rotor2 =    { 3, 1,10,13, 6,22, 5,18,17,14,23, 9, 7,24,21,15, 8,16,12,19,25, 4,20, 0, 2,11, 2};
+    private static int[] rotor3 =    {20, 9, 4,13,19, 5, 8,15,18,21,12, 0,11, 6,22, 7,23,24,10, 3,25,14,16, 1,17, 2, 0};
+    private static int[] rotor4 =    {15, 8, 5,22, 2,17,16,21,10,11,18, 1,13,23,24,12,14, 6, 7, 0,19, 4, 3, 9,25,20, 1};
+    private static int[] rotor5 =    { 1,16,23,18,15,20,22, 4, 7,21, 6,17, 3, 9,25, 2,24, 8,14,13,12, 5,11, 0,19,10, 2};
     private static int[] reflector = {25,24,23,22,21,20,19,18,17,16,15,14,13,12,11,10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
     private static int[] reRotor1 =  new int[alphSum];//{21,15,20,13,22,25, 0, 5,12, 1,17,24,14, 4,18,19, 9,23, 2, 8,10, 7,16,11, 6, 3};
     private static int[] reRotor2 =  new int[alphSum];//{23, 1,24, 0,21, 6, 4,12,16,11, 2,25,18, 3, 9,15,17, 8, 7,19,22,14, 5,10,13,20};
@@ -56,26 +56,31 @@ public class Rotor{
                 rotor[i] = (alphSum+rotor1[(top+i)%alphSum]-top)%alphSum;
                 reRotor[i] = (alphSum+reRotor1[(top+i)%alphSum]-top)%alphSum;
             }
+            rotor[alphSum] = rotor1[alphSum];//
         }else if(java.util.Objects.equals(2,num)){
             for(int i = 0; i < alphSum; i++){
                 rotor[i] = (alphSum+rotor2[(top+i)%alphSum]-top)%alphSum;
                 reRotor[i] = (alphSum+reRotor2[(top+i)%alphSum]-top)%alphSum;
             }
+            rotor[alphSum] = rotor2[alphSum];//
         }else if(java.util.Objects.equals(3,num)){
             for(int i = 0; i < alphSum; i++){
                 rotor[i] = (alphSum+rotor3[(top+i)%alphSum]-top)%alphSum;
                 reRotor[i] = (alphSum+reRotor3[(top+i)%alphSum]-top)%alphSum;
             }
+            rotor[alphSum] = rotor3[alphSum];//
         }else if(java.util.Objects.equals(4,num)){
             for (int i = 0; i < alphSum; i++) {
                 rotor[i] = (alphSum+rotor4[(top+i)%alphSum]-top)%alphSum;
                 reRotor[i] = (alphSum+reRotor4[(top+i)%alphSum]-top)%alphSum;
             }
+            rotor[alphSum] = rotor4[alphSum];//
         }else if(java.util.Objects.equals(5,num)){
             for (int i = 0; i < alphSum; i++) {
                 rotor[i] = (alphSum+rotor5[(top+i)%alphSum]-top)%alphSum;
                 reRotor[i] = (alphSum+reRotor5[(top+i)%alphSum]-top)%alphSum;
             }
+            rotor[alphSum] = rotor5[alphSum];
         }else{
             System.out.println("Please set the number of rotor between 1 and 5.");
         }
@@ -103,6 +108,9 @@ public class Rotor{
         reRotor[alphSum-1] = reSave;
     }
 
+    public int getRotateNum(){
+        return rotor[alphSum];
+    }
     public int conversion(int n){
         return rotor[n];
     }
