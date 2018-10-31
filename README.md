@@ -1,6 +1,7 @@
 # Enigma
 えにぐま＠がんばる
 ## version 1.1.1
+###### 変更点
 - reRotor.pyの処理をRotor.javaの中に移動。
 
 ###### 使い方
