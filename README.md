@@ -1,5 +1,7 @@
 # Enigma
 えにぐま＠がんばる
+## 注意事項
+- 想定されていない文字を入力するとぬるぽを返すので気を付けてください。
 ## version 1.1.1
 ###### 変更点
 - reRotor.pyの処理をRotor.javaの中に移動。
@@ -11,7 +13,7 @@
   3. 急に止めたくなった場合は`ctrl+Z`か`ctrl+C`を押して強制終了してください。
 
 - 次に、セッティングです。
-  1. First Rotorと出るので、一番目のローターの番号と一番上の文字をセットしてください。(version 1.1.0現在ではローターは5つあります。文字は英字の大文字のみ対応しています)
+  1. First Rotorと出るので、一番目のローターの番号と一番上の文字をセットしてください。(version 1.1.1現在ではローターは5つあります。文字は英字の大文字のみ対応しています)
   ```:入力例
   First Rotor
   1 A
@@ -79,20 +81,20 @@
   ```:出力例
   Please type a message here.
   AAA
-  NPR
+  TIN
   ```
   ```:出力例(空白を入れた場合)
   Please type a message here.
   A AA
-  N
-  PR
+  T
+  IN
   ```
 
   3. 終了するときは`"exit"`と入力してください。
   ```:入力例
   Please type a message here.
   AAA
-  NPR
+  TIN
   "exit"
   ```
 
