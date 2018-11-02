@@ -135,6 +135,14 @@ public class Rotor{
         rotateSum++;
     }
 
+    public static char getFirstAlph(){
+        return firstAlph;
+    }
+
+    public static char getLastAlph(){
+        return lastAlph;
+    }
+
     public int getNum(){
         return num;
     }
