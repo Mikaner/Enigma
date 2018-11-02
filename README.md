@@ -15,36 +15,46 @@
 - 次に、セッティングです。
   1. First Rotorと出るので、一番目のローターの番号と一番上の文字をセットしてください。(version 1.1.2現在ではローターは5つあります。文字は英字の大文字のみ対応しています)
   ```:入力例
+  --Setting--
   First Rotor
-  1 A
+   Number : 1
+   Alphabet : A
   ```
 
   2. Second Rotorと出るので、二番目のローターの番号と一番上の文字をセットしてください。
   ```:入力例
   First Rotor
-  1 A
+   Number : 1
+   Alphabet : A
   Second Rotor
-  2 B
+   Number : 2
+   Alphabet : B
   ```
 
   3. Third Rotorと出るので、三番目のローターの番号と一番上の文字をセットしてください。
   ```:入力例
   First Rotor
-  1 A
+   Number : 1
+   Alphabet : A
   Second Rotor
-  2 B
+   Number : 2
+   Alphabet : B
   Third Rotor
-  3 C
+   Number : 3
+   Alphabet : C
   ```
 
   4. Exchangeと出るので、入れ替えたい文字の数と入れ替えたい文字をそれぞれ指定してください。
   ```:入力例
   First Rotor
-  1 A
+   Number : 1
+   Alphabet : A
   Second Rotor
-  2 B
+   Number : 2
+   Alphabet : B
   Third Rotor
-  3 C
+   Number : 3
+   Alphabet : C
   Exchange
   Number of Alphabet to exchange : 3
   A Z
@@ -55,11 +65,14 @@
   5. 現在あるローターの数と、対応しているA~Zの入れ替える前、入れ替えた後が出力されたら、セッティングは終了です。
   ```:出力例
   First Rotor
-  1 A
+   Number : 1
+   Alphabet : A
   Second Rotor
-  2 B
+   Number : 2
+   Alphabet : B
   Third Rotor
-  3 C
+   Number : 3
+   Alphabet : C
   Exchange
   Number of Alphabet to exchange : 3
   A Z

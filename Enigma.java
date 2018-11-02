@@ -22,71 +22,71 @@ public class Enigma{
         Rotor rotor2 = new Rotor();//call The Second Rotor
         Rotor rotor3 = new Rotor();//call The Third Rotor
 
-        System.out.println("Setting");
+        System.out.println("--Setting--");
         System.out.println("First Rotor");
         while(true){
-            System.out.print("Number : ");
+            System.out.print(" Number : ");
             sNum1 = scanner.nextInt();//the Number of First Rotor
             if(sNum1 > 0 && sNum1 <= 5){
                 break;
             }else if(java.util.Objects.equals(0,sNum1)){
                 System.exit(0);
             }
-            System.out.println("Please type integer type between 1 and 5.");
+            System.out.println(" Please type integer type between 1 and 5.");
         }
         while(true){
-            System.out.print("Alphabet : ");
+            System.out.print(" Alphabet : ");
             top1 = scanner.next().charAt(0); //first character
             if(top1 >= Rotor.getFirstAlph() && top1 < Rotor.getLastAlph()){
                 break;
             }else if(java.util.Objects.equals('0',top1)){
                 System.exit(0);
             }
-            System.out.println("Please type character type between A and Z.");
+            System.out.println(" Please type character type between A and Z.");
         }
 
         System.out.println("Second Rotor");
         while(true){
-            System.out.print("Number : ");
+            System.out.print(" Number : ");
             sNum2 = scanner.nextInt();//the Second Rotor
             if(sNum2 > 0 && sNum2 <= 5){
                 break;
             }else if(java.util.Objects.equals(0,sNum2)){
                 System.exit(0);
             }
-            System.out.println("Please type integer type between 1 and 5.");
+            System.out.println(" Please type integer type between 1 and 5.");
         }
         while(true){
-            System.out.print("Alphabet : ");
+            System.out.print(" Alphabet : ");
             top2 = scanner.next().charAt(0);//first
             if(top2 >= Rotor.getFirstAlph() && top2 < Rotor.getLastAlph()){
                 break;
             }else if(java.util.Objects.equals('0',top2)){
                 System.exit(0);
             }
-            System.out.println("Please type character type between A and Z.");
+            System.out.println(" Please type character type between A and Z.");
         }
 
         System.out.println("Third Rotor");
         while(true){
-            System.out.print("Number : ");
+            System.out.print(" Number : ");
             sNum3 = scanner.nextInt();//the 
             if(sNum3 > 0 && sNum3 <= 5){
                 break;
             }else if(java.util.Objects.equals(0,sNum3)){
                 System.exit(0);
             }
-            System.out.println("Please type integer type between 1 and 5.");
+            System.out.println(" Please type integer type between 1 and 5.");
         }
         while(true){
-            System.out.print("Alphabet : ");
+            System.out.print(" Alphabet : ");
             top3 = scanner.next().charAt(0);//first
             if(top3 >= Rotor.getFirstAlph() && top3 < Rotor.getLastAlph()){
                 break;
             }else if(java.util.Objects.equals('0',top3)){
                 System.exit(0);
             }
-            System.out.println("Please type character type between A and Z.");
+            System.out.println(" Please type character type between A and Z.");
         }
 
         System.out.println("Exchange");
