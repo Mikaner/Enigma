@@ -22,8 +22,8 @@ public class Enigma{
 
         System.out.println("--Setting--");
         
-        System.out.println("First Rotor");
         try{
+            System.out.println("First Rotor");
             while(true){
                 System.out.print(" Number  :> ");
                 sNum1 = scanner.nextInt();//the Number of First Rotor
