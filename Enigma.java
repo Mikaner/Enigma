@@ -1,5 +1,4 @@
-import java.util.Scanner;
-import java.util.InputMismatchException;
+import java.util.*;
 
 
 public class Enigma{
@@ -29,7 +28,7 @@ public class Enigma{
                 sNum1 = scanner.nextInt();//the Number of First Rotor
                 if(sNum1 > 0 && sNum1 <= 5){
                     break;
-                }else if(java.util.Objects.equals(0,sNum1)){
+                }else if(Objects.equals(0,sNum1)){
                     System.exit(0);
                 }
                 System.out.println(" Please type integer type between 1 and 5.");
@@ -39,7 +38,7 @@ public class Enigma{
                 top1 = scanner.next().charAt(0); //first character
                 if(top1 >= Rotor.getFirstAlph() && top1 < Rotor.getLastAlph()){
                     break;
-                }else if(java.util.Objects.equals('0',top1)){
+                }else if(Objects.equals('0',top1)){
                     System.exit(0);
                 }
                 System.out.println(" Please type character type between A and Z.");
@@ -51,7 +50,7 @@ public class Enigma{
                 sNum2 = scanner.nextInt();//the Second Rotor
                 if(sNum2 > 0 && sNum2 <= 5){
                     break;
-                }else if(java.util.Objects.equals(0,sNum2)){
+                }else if(Objects.equals(0,sNum2)){
                     System.exit(0);
                 }
                 System.out.println(" Please type integer type between 1 and 5.");
@@ -61,7 +60,7 @@ public class Enigma{
                 top2 = scanner.next().charAt(0);//first
                 if(top2 >= Rotor.getFirstAlph() && top2 < Rotor.getLastAlph()){
                     break;
-                }else if(java.util.Objects.equals('0',top2)){
+                }else if(Objects.equals('0',top2)){
                     System.exit(0);
                 }
                 System.out.println(" Please type character type between A and Z.");
@@ -73,7 +72,7 @@ public class Enigma{
                 sNum3 = scanner.nextInt();//the 
                 if(sNum3 > 0 && sNum3 <= 5){
                     break;
-                }else if(java.util.Objects.equals(0,sNum3)){
+                }else if(Objects.equals(0,sNum3)){
                     System.exit(0);
                 }
                 System.out.println(" Please type integer type between 1 and 5.");
@@ -83,7 +82,7 @@ public class Enigma{
                 top3 = scanner.next().charAt(0);//first
                 if(top3 >= Rotor.getFirstAlph() && top3 < Rotor.getLastAlph()){
                     break;
-                }else if(java.util.Objects.equals('0',top3)){
+                }else if(Objects.equals('0',top3)){
                     System.exit(0);
                 }
                 System.out.println(" Please type character type between A and Z.");

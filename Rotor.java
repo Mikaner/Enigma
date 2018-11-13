@@ -1,6 +1,4 @@
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Rotor{
     private static char firstAlph = 'A';
@@ -27,7 +25,7 @@ public class Rotor{
     private static int[] reRotor5 =  new int[alphSum];//{23, 0,15,12, 7,21,10, 8,17,13,25,22,20,19,18, 4, 1,11, 3,24, 5, 9, 6, 2,16,14};
     private static char[] alphabet = new char[alphSum];
     private static char[] alphabetExchange = new char[alphSum];
-    private static final Map<Character, Integer> alphabetToNum;
+    private static final Map<Character, Integer> ALPHABET_TO_NUM;
     static {
         Map<Character, Integer> map = new HashMap<>();
         for(int i = 0; i < alphSum; i++){
@@ -41,7 +39,7 @@ public class Rotor{
             reRotor4[rotor4[i]] = i;
             reRotor5[rotor5[i]] = i;
         }
-        alphabetToNum = Collections.unmodifiableMap(map);
+        ALPHABET_TO_NUM = Collections.unmodifiableMap(map);
     }
     
     public Rotor(){
@@ -51,31 +49,31 @@ public class Rotor{
     public void setRotor(int number, char topAlph){
         num = number;//do not need
         top = topAlph-firstAlph;
-        if(java.util.Objects.equals(1,num)){
+        if(Objects.equals(1,num)){
             for(int i = 0; i < alphSum; i++){
                 rotor[i] = (alphSum+rotor1[(top+i)%alphSum]-top)%alphSum;
                 reRotor[i] = (alphSum+reRotor1[(top+i)%alphSum]-top)%alphSum;
             }
             rotor[alphSum] = rotor1[alphSum];//
-        }else if(java.util.Objects.equals(2,num)){
+        }else if(Objects.equals(2,num)){
             for(int i = 0; i < alphSum; i++){
                 rotor[i] = (alphSum+rotor2[(top+i)%alphSum]-top)%alphSum;
                 reRotor[i] = (alphSum+reRotor2[(top+i)%alphSum]-top)%alphSum;
             }
             rotor[alphSum] = rotor2[alphSum];//
-        }else if(java.util.Objects.equals(3,num)){
+        }else if(Objects.equals(3,num)){
             for(int i = 0; i < alphSum; i++){
                 rotor[i] = (alphSum+rotor3[(top+i)%alphSum]-top)%alphSum;
                 reRotor[i] = (alphSum+reRotor3[(top+i)%alphSum]-top)%alphSum;
             }
             rotor[alphSum] = rotor3[alphSum];//
-        }else if(java.util.Objects.equals(4,num)){
+        }else if(Objects.equals(4,num)){
             for (int i = 0; i < alphSum; i++) {
                 rotor[i] = (alphSum+rotor4[(top+i)%alphSum]-top)%alphSum;
                 reRotor[i] = (alphSum+reRotor4[(top+i)%alphSum]-top)%alphSum;
             }
             rotor[alphSum] = rotor4[alphSum];//
-        }else if(java.util.Objects.equals(5,num)){
+        }else if(Objects.equals(5,num)){
             for (int i = 0; i < alphSum; i++) {
                 rotor[i] = (alphSum+rotor5[(top+i)%alphSum]-top)%alphSum;
                 reRotor[i] = (alphSum+reRotor5[(top+i)%alphSum]-top)%alphSum;
@@ -87,22 +85,22 @@ public class Rotor{
     }
 
     public static void setExchange(char c1, char c2){
-        exchangeRotor[alphabetToNum.get(c1)] = alphabetToNum.get(c2);
-        exchangeRotor[alphabetToNum.get(c2)] = alphabetToNum.get(c1);
-        alphabetExchange[alphabetToNum.get(c1)] = alphabet[alphabetToNum.get(c2)];
-        alphabetExchange[alphabetToNum.get(c2)] = alphabet[alphabetToNum.get(c1)];
+        exchangeRotor[ALPHABET_TO_NUM.get(c1)] = ALPHABET_TO_NUM.get(c2);
+        exchangeRotor[ALPHABET_TO_NUM.get(c2)] = ALPHABET_TO_NUM.get(c1);
+        alphabetExchange[ALPHABET_TO_NUM.get(c1)] = alphabet[ALPHABET_TO_NUM.get(c2)];
+        alphabetExchange[ALPHABET_TO_NUM.get(c2)] = alphabet[ALPHABET_TO_NUM.get(c1)];
     }
 
     public char changeAlphabet(char a){
-        return alphabet[alphabetToNum.get(a)];
+        return alphabet[ALPHABET_TO_NUM.get(a)];
     }
 
     public void rotate(){
-        int save = rotor[0]-1 >= 0 ? rotor[0]-1 : 25;
-        int reSave = reRotor[0]-1 >= 0 ? reRotor[0]-1 : 25;
+        int save = rotor[0]-1 >= 0 ? rotor[0]-1 : alphSum-1;
+        int reSave = reRotor[0]-1 >= 0 ? reRotor[0]-1 : alphSum-1;
         for(int i = 0; i < alphSum; i++){
-            rotor[i] = rotor[(i+1)%alphSum]-1 >= 0 ? rotor[(i+1)%alphSum]-1 : 25;
-            reRotor[i] = reRotor[(i+1)%alphSum]-1 >= 0 ? reRotor[(i+1)%alphSum]-1 : 25;
+            rotor[i] = rotor[(i+1)%alphSum]-1 >= 0 ? rotor[(i+1)%alphSum]-1 : alphSum-1;
+            reRotor[i] = reRotor[(i+1)%alphSum]-1 >= 0 ? reRotor[(i+1)%alphSum]-1 : alphSum-1;
         }
         rotor[alphSum-1] = save;
         reRotor[alphSum-1] = reSave;
@@ -120,7 +118,7 @@ public class Rotor{
     }
 
     public static int exchange(char a){
-        return exchangeRotor[alphabetToNum.get(a)];
+        return exchangeRotor[ALPHABET_TO_NUM.get(a)];
     }
 
     public static char exchange(int n){
@@ -162,7 +160,7 @@ public class Rotor{
         return alphabet[i];
     }
     public static int getAlphabetToNum(char a){
-        return alphabetToNum.get(a);
+        return ALPHABET_TO_NUM.get(a);
     }
     public static int getExchangeRotor(int i){
         return exchangeRotor[i];
