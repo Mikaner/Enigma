@@ -11,7 +11,7 @@ public class Rotor{
     private static int rotorSum;
     private static int rotateSum;
     private static int[] exchangeRotor = new int[alphSum];
-                                   //{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25} The number in last is rotate number.
+                                   //{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25}
     private static int[] rotor1 =    { 6, 9,18,25,13, 7,24,21,19,16,20,23, 8, 3,12, 1,22,10,14,15, 2, 0, 4,17,11, 5};
     private static int[] rotor2 =    { 3, 1,10,13, 6,22, 5,18,17,14,23, 9, 7,24,21,15, 8,16,12,19,25, 4,20, 0, 2,11};
     private static int[] rotor3 =    {20, 9, 4,13,19, 5, 8,15,18,21,12, 0,11, 6,22, 7,23,24,10, 3,25,14,16, 1,17, 2};
