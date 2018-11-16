@@ -11,6 +11,9 @@ public class Enigma{
         char top1;
         char top2;
         char top3;
+        char callyAlph1;
+        char callyAlph2;
+        char callyAlph3;
         int exchangeCount;
         char exchangeAlph1;
         char exchangeAlph2;
@@ -24,7 +27,7 @@ public class Enigma{
         try{
             System.out.println("First Rotor");
             while(true){
-                System.out.print(" Number  :> ");
+                System.out.print(" Number  :>");
                 sNum1 = scanner.nextInt();//the Number of First Rotor
                 if(sNum1 > 0 && sNum1 <= 5){
                     break;
@@ -34,7 +37,7 @@ public class Enigma{
                 System.out.println(" Please type integer type between 1 and 5.");
             }
             while(true){
-                System.out.print(" Alphabet:> ");
+                System.out.print(" Alphabet:>");
                 top1 = scanner.next().charAt(0); //first character
                 if(top1 >= Rotor.getFirstAlph() && top1 < Rotor.getLastAlph()){
                     break;
@@ -43,10 +46,20 @@ public class Enigma{
                 }
                 System.out.println(" Please type character type between A and Z.");
             }
-
-            System.out.println("Second Rotor");
             while(true){
-                System.out.print(" Number  :> ");
+                System.out.print(" CallyDigit:>");
+                callyAlph1 = scanner.next().charAt(0);
+                if(callyAlph1 >= Rotor.getFirstAlph() && callyAlph1 < Rotor.getLastAlph()){
+                    break;
+                }else if(Objects.equals('0',callyAlph1)){
+                    System.exit(0);
+                }
+                System.out.println(" Please type character type between A and Z.");
+            }
+
+            System.out.println("Medium Rotor");
+            while(true){
+                System.out.print(" Number  :>");
                 sNum2 = scanner.nextInt();//the Second Rotor
                 if(sNum2 > 0 && sNum2 <= 5){
                     break;
@@ -56,7 +69,7 @@ public class Enigma{
                 System.out.println(" Please type integer type between 1 and 5.");
             }
             while(true){
-                System.out.print(" Alphabet:> ");
+                System.out.print(" Alphabet:>");
                 top2 = scanner.next().charAt(0);//first
                 if(top2 >= Rotor.getFirstAlph() && top2 < Rotor.getLastAlph()){
                     break;
@@ -65,10 +78,20 @@ public class Enigma{
                 }
                 System.out.println(" Please type character type between A and Z.");
             }
-
-            System.out.println("Third Rotor");
             while(true){
-                System.out.print(" Number  :> ");
+                System.out.print(" CallyDigit:>");
+                callyAlph2 = scanner.next().charAt(0);
+                if(callyAlph2 >= Rotor.getFirstAlph() && callyAlph1 < Rotor.getLastAlph()){
+                    break;
+                }else if(Objects.equals('0',callyAlph2)){
+                    System.exit(0);
+                }
+                System.out.println(" Please type character type between A and Z.");
+            }
+
+            System.out.println("Slow Rotor");
+            while(true){
+                System.out.print(" Number  :>");
                 sNum3 = scanner.nextInt();//the 
                 if(sNum3 > 0 && sNum3 <= 5){
                     break;
@@ -78,7 +101,7 @@ public class Enigma{
                 System.out.println(" Please type integer type between 1 and 5.");
             }
             while(true){
-                System.out.print(" Alphabet:> ");
+                System.out.print(" Alphabet:>");
                 top3 = scanner.next().charAt(0);//first
                 if(top3 >= Rotor.getFirstAlph() && top3 < Rotor.getLastAlph()){
                     break;
@@ -87,19 +110,29 @@ public class Enigma{
                 }
                 System.out.println(" Please type character type between A and Z.");
             }
+            while(true){
+                System.out.print(" CallyDigit:>");
+                callyAlph3 = scanner.next().charAt(0);
+                if(callyAlph3 >= Rotor.getFirstAlph() && callyAlph1 < Rotor.getLastAlph()){
+                    break;
+                }else if(Objects.equals('0', callyAlph3)){
+                    System.exit(0);
+                }
+                System.out.println(" Please type character type between A and Z.");
+            }
 
-            System.out.println("Exchange");
-            System.out.print("Number of Alphabet to exchange : ");
+            System.out.println("Reflecter");
+            System.out.print("Number of plugs:>");
             exchangeCount = scanner.nextInt();//exchange count
             for (int i = 0; i < exchangeCount; i++) {
                 exchangeAlph1 = scanner.next().charAt(0);//exchange character
                 exchangeAlph2 = scanner.next().charAt(0);
                 Rotor.setExchange(exchangeAlph1, exchangeAlph2);
             }
-            rotor1.setRotor(sNum1, top1);
-            rotor2.setRotor(sNum2, top2);
-            rotor3.setRotor(sNum3, top3);
-        }catch(InputMismatchException e){
+            rotor1.setRotor(sNum1, top1, callyAlph1);
+            rotor2.setRotor(sNum2, top2, callyAlph2);
+            rotor3.setRotor(sNum3, top3, callyAlph3);
+        }catch(Exception e){
             System.out.println("Please enter a nomal value.");
             System.exit(0);
         }
@@ -118,9 +151,9 @@ public class Enigma{
         System.out.println("--Main--");
         System.out.println("Please type a message here.");
         while(true){
-            System.out.print("Input:> ");
+            System.out.println("<Input>");
             String input = scanner.next();
-            if(java.util.Objects.equals(input,"0")){
+            if(Objects.equals(input,"0")){
                 break;
             }
             char[] cPut = input.toCharArray();//change type to char
@@ -156,6 +189,7 @@ public class Enigma{
                     rotor3.rotate();
                 }
             }
+            System.out.println("<output>");
             for(int i = 0; i < cPut.length; i++){//output
                 System.out.print(cPut[i]);
             }
