@@ -127,6 +127,8 @@
   A AA
   <output>
   T
+  <input>
+  <output>
   IN
   ```
 
