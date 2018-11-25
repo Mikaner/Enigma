@@ -19,8 +19,8 @@ public class Enigma{
         char exchangeAlph2;
 
         Rotor rotor1 = new Rotor();//call The First Rotor
-        Rotor rotor2 = new Rotor();//call The Second Rotor
-        Rotor rotor3 = new Rotor();//call The Third Rotor
+        Rotor rotor2 = new Rotor();//call The Medium Rotor
+        Rotor rotor3 = new Rotor();//call The Slow Rotor
 
         System.out.println("--Setting--");
         
