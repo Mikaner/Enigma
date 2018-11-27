@@ -35,7 +35,7 @@ public class NewEnigma{
                         break;
                 }
                 while(true){
-                    System.out.print(" Number  :>");
+                    System.out.print(" Number  :> ");
                     sNum[i] = scanner.nextInt();//the Number of First Rotor
                     if(sNum[i] > 0 && sNum[i] <= 5){
                         break;
@@ -45,7 +45,7 @@ public class NewEnigma{
                     System.out.println(" Please type integer type between 1 and 5.");
                 }
                 while(true){
-                    System.out.print(" Alphabet:>");
+                    System.out.print(" Alphabet:> ");
                     top[i] = scanner.next().charAt(0); //first character
                     if(top[i] >= Rotor.getFirstAlph() && top[i] < Rotor.getLastAlph()){
                         break;
@@ -55,7 +55,7 @@ public class NewEnigma{
                     System.out.println(" Please type character type between A and Z.");
                 }
                 while(true){
-                    System.out.print(" CallyDigit:>");
+                    System.out.print(" CallyDigit:> ");
                     callyAlph[i] = scanner.next().charAt(0);
                     if(callyAlph[i] >= Rotor.getFirstAlph() && callyAlph[i] < Rotor.getLastAlph()){
                         break;
@@ -68,7 +68,7 @@ public class NewEnigma{
             }
 
             System.out.println("Reflecter");
-            System.out.print("Number of plugs:>");
+            System.out.print("Number of plugs:> ");
             exchangeCount = scanner.nextInt();//exchange count
             for (int i = 0; i < exchangeCount; i++) {
                 exchangeAlph1 = scanner.next().charAt(0);//exchange character
@@ -111,7 +111,7 @@ public class NewEnigma{
                     cAlph = rotor[j].reConversion(cAlph);
                 }
                 cPut[i] = Rotor.exchange(cAlph);
-                
+
                 /* Rotation processing */
                 rotor[0].rotate();
                 Rotor.plusRotateSum();
