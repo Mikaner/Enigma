@@ -5,13 +5,13 @@ public class NewEnigma{
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int totalRotor = 3;
-        int[] sNum = new int[totalRotor];
-        char[] top = new char[totalRotor];
-        char[] callyAlph = new char[totalRotor];
+        int cAlph;
         int exchangeCount;
         char exchangeAlph1;
         char exchangeAlph2;
-        int cAlph;
+        int[] sNum = new int[totalRotor];
+        char[] top = new char[totalRotor];
+        char[] callyAlph = new char[totalRotor];
 
         NewRotor[] rotor = new NewRotor[totalRotor];
 
