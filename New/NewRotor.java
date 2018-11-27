@@ -47,12 +47,12 @@ public class NewRotor{
             rotor[i] = (alphSum+roNum[(top+i)%alphSum]-top)%alphSum;
             reRotor[i] = (alphSum+reNum[(top+i)%alphSum]-top)%alphSum;
         }
-        rotor[alphSum] = (int)cally-firstAlph;
+        rotor[alphSum] = toNum(cally);
     }
 
     public void setRotor(int num, char topAlph, char callyAlph){
         this.num = num;//do not need
-        top = topAlph-firstAlph;
+        top = toNum(topAlph);
         if(Objects.equals(1,num)){
             set(rotor1,reRotor1,callyAlph);
         }else if(Objects.equals(2,num)){
@@ -69,7 +69,7 @@ public class NewRotor{
     }
 
     public static void setExchange(char c1, char c2){
-        int ca = c1-firstAlph, cb = c2-firstAlph;
+        int ca = toNum(c1), cb = toNum(c2);
         exchangeRotor[ca] = cb;
         exchangeRotor[cb] = ca;
         alphabetExchange[ca] = alphabet[cb];
@@ -77,7 +77,7 @@ public class NewRotor{
     }
 
     public char changeAlphabet(char a){
-        return alphabet[a-firstAlph];
+        return alphabet[toNum(a)];
     }
 
     public void rotate(){
@@ -89,6 +89,10 @@ public class NewRotor{
         }
         rotor[alphSum-1] = save;
         reRotor[alphSum-1] = reSave;
+    }
+
+    public static int toNum(char a){
+        return a-firstAlph;
     }
 
     public int getRotateNum(){
@@ -103,7 +107,7 @@ public class NewRotor{
     }
 
     public static int exchange(char a){
-        return exchangeRotor[a-firstAlph];
+        return exchangeRotor[toNum(a)];
     }
 
     public static char exchange(int n){
@@ -143,9 +147,6 @@ public class NewRotor{
     }
     public static char getAlphabet(int i){
         return alphabet[i];
-    }
-    public static int getAlphabetToNum(char a){
-        return a-firstAlph;
     }
     public static int getExchangeRotor(int i){
         return exchangeRotor[i];
