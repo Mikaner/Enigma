@@ -11,6 +11,7 @@ public class NewEnigma{
         int exchangeCount;
         char exchangeAlph1;
         char exchangeAlph2;
+        int cAlph;
 
         Rotor[] rotor = new Rotor[3];
 
@@ -101,25 +102,16 @@ public class NewEnigma{
             char[] cPut = input.toCharArray();//change type to char
             for(int i = 0; i < cPut.length; i++){//change alphabet
                 /* conversion processing */
-                cPut[i] = Rotor.exchange(
-                    rotor[0].reConversion(
-                        rotor[1].reConversion(
-                            rotor[2].reConversion(
-                                Rotor.reflector(
-                                    rotor[2].conversion(
-                                        rotor[1].conversion(
-                                            rotor[0].conversion(
-                                                Rotor.exchange(
-                                                    cPut[i]
-                                                )
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
-                );
+                cAlph = Rotor.exchange(cPut[i]);
+                for (int j = 0; j < 3; j++) {
+                    cAlph = rotor[j].conversion(cAlph);
+                }
+                cAlph = Rotor.reflector(cAlph);
+                for (int j = 2; j >= 0; j--) {
+                    cAlph = rotor[j].reConversion(cAlph);
+                }
+                cPut[i] = Rotor.exchange(cAlph);
+                
                 /* Rotation processing */
                 rotor[0].rotate();
                 Rotor.plusRotateSum();
